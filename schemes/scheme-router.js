@@ -16,7 +16,6 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-
   Schemes.findById(id)
     .then(scheme => {
       if (scheme) {
@@ -34,7 +33,6 @@ router.get("/:id", (req, res) => {
 
 router.get("/:id/steps", (req, res) => {
   const { id } = req.params;
-
   Schemes.findSteps(id)
     .then(steps => {
       if (steps.length) {
