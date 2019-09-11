@@ -33,7 +33,7 @@ router.get("/:id", (req, res) => {
 
 router.get("/:id/steps", (req, res) => {
   const { id } = req.params;
-  Schemes.findSteps(id)
+  Schemes.findStepsByScheme(id)
     .then(steps => {
       if (steps.length) {
         res.json(steps);
@@ -50,13 +50,12 @@ router.get("/:id/steps", (req, res) => {
 
 router.post("/", (req, res) => {
   const schemeData = req.body;
-
   Schemes.add(schemeData)
     .then(scheme => {
       res.status(201).json(scheme);
     })
     .catch(err => {
-      res.status(500).json({ message: "Failed to create new scheme" });
+      res.status(500).json({ message: err.message });
     });
 });
 
