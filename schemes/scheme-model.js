@@ -5,5 +5,5 @@ module.exports = {
 };
 
 function find() {
-  return db("users");
+  return db("steps");
 }
