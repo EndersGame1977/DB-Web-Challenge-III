@@ -91,7 +91,7 @@ router.put("/:id", (req, res) => {
       }
     })
     .catch(err => {
-      res.status(500).json({ message: "Failed to update scheme" });
+      res.status(500).json({ message: err.message });
     });
 });
 
